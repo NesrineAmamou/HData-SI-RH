@@ -2,9 +2,8 @@
    <a onMouseOver="this.style.cursor='hand'"> <i class="icon-edit icon-2x" ng-click="edit()"  style="float:right;"/></a>
    <br><br><br><br>
    <header class="main-container__header">
-      <h2 class="title title_bottom-decor">About me
-      </h2>
-      <div class="subtitle">Let me introduce myself</div>
+      <h2 class="title title_bottom-decor">About me</h2>
+      <div class="subtitle" id="myHeader">Let me introduce myself</div>
    </header>
    <div class="content about-me">
       <div class="about-me__layout " data-show-effect="fadeInLeft" data-show-delay="200">
@@ -55,14 +54,14 @@
                <div class="about-me__value"> {{user.number}}</div>
             </div>
          </div>
-         <div class="about-me__row">
+        <!--  <div class="about-me__row">
             <div class="about-me__column">
                <div class="about-me__tag">E-mail</div>
-            </div>
-            <div class="about-me__column">
+            </div> -->
+           <!--  <div class="about-me__column">
                <div class="about-me__value"><a href="#"> {{user.email}}</a></div>
-            </div>
-         </div>
+            </div> -->
+       <!--   </div> -->
          <div class="about-me__row">
             <div class="about-me__column">
                <div class="about-me__tag">Follow me</div>
@@ -128,11 +127,11 @@
          <div ng-repeat="experience in user.experiences">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
-               <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.year}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
+               <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.date}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
                <article class="timeline__inner timeline__content " data-show-effect="fadeInRight" data-show-delay="1000">
-                  <h3 class="title title_small timeline__title">{{experience.poste}}</h3>
+                  <h3 class="title title_small timeline__title">{{experience.position}}</h3>
                   <div class="timeline__description">
-                     <p>{{experience.post_description}}</p>
+                     <p>{{experience.description}}</p>
                   </div>
                </article>
             </div>
@@ -161,11 +160,11 @@
          <div ng-repeat="education in user.formation">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
-               <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.year_educ}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
+               <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.date}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
                <article class="timeline__inner timeline__content " data-show-effect="fadeInRight" data-show-delay="1000">
                   <h3 class="title title_small timeline__title">{{education.degree}}</h3>
                   <div class="timeline__description">
-                     <p>{{education.activity}}</p>
+                     <p>{{education.field}}</p>
                   </div>
                </article>
             </div>

@@ -9,39 +9,33 @@
    </header>
    <div class="content about-me">
 
-
-
-
       <div class="about-me__layout " data-show-effect="fadeInLeft" data-show-delay="200">
-       <br> <br> <br>
-       <header class="main-container__header">
+        <br> <br> <br>
+        <header class="main-container__header">
          <ANY class="subtitle title_middle">Upload your picture</ANY>
 
       </header>
 
 
-    
-
-
-       <div class="avatar">
-          <any ng-repeat="image in images">
-            
-                    <img width="150px" id="imagePreview{{$index}}" src="#" alt="" />
-             
+      <div style="margin-left:160px;" >
+         <div style="margin-left:90px;" ng-show="images.length > 0">
+            <any ng-repeat="image in images">
+               <img width="150px" id="imagePreview{{$index}}" src="#" alt="" />
             </any>
-      
-    
-    <span class="btn btn-default btn-file"><input type="file" class="btn btn-link" id="img"/>
-    </span>
+         </div>
 
-<div>
+         <span class="btn btn-default btn-file"><input type="file" class="btn btn-link" id="img" ng-model="photo"
+          onchange="angular.element(this).scope().addImage(this)"/>
+       </span>
+
+<!-- <div>
     <button ng-click="addImage()" type="button" class="text-field icon-plus" style="float:bottom-right ; left;background-color: white;color: black;border: 0px solid #000;"></button>
 
+ </div> -->
+
+
+
 </div>
-
-    
-
-  </div>
 
 
 <BR>
@@ -79,10 +73,10 @@
             <i class="icon icon-mobile-phone contact-form__icon"></i>
             <input class="text-field" type="text" ng-model="number" placeholder="Your phone number" name="number" required>
          </div>
-         <div class="contact-form__item " data-show-effect="fadeInRight" data-show-delay="500">
+       <!--   <div class="contact-form__item " data-show-effect="fadeInRight" data-show-delay="500">
             <i class="icon icon-envelope-alt contact-form__icon"></i> 
             <input class="text-field" type="email" ng-model="email" placeholder="Your email" name="email" required>
-         </div>
+         </div> -->
          <div class="contact-form__item " data-show-effect="fadeInLeft" data-show-delay="600">
             <i class="icon icon-linkedin-sign contact-form__icon"></i>
             <input class="text-field" type="text" ng-model="linkedin" placeholder="Your linkedin account" name="linkedin">
@@ -107,11 +101,11 @@
             <div ng-repeat="experience in user.experiences">
                <div class="timeline__layout">
                   <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
-                  <div class="timeline__inner timeline__time  " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.year}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
+                  <div class="timeline__inner timeline__time  " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.date}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
                   <article class="timeline__inner timeline__content " data-show-effect="fadeInRight" data-show-delay="1000">
-                     <h3 class="title title_small timeline__title">{{experience.poste}}</h3>
+                     <h3 class="title title_small timeline__title">{{experience.position}}</h3>
                      <div class="timeline__description">
-                        <p>{{experience.post_description}}</p>
+                        <p>{{experience.description}}</p>
                      </div>
                   </article>
                </div>
@@ -179,11 +173,11 @@
                <div ng-repeat="education in user.formation">
                   <div class="timeline__layout">
                      <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
-                     <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.year_educ}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
+                     <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.date}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
                      <article class="timeline__inner timeline__content " data-show-effect="fadeInRight" data-show-delay="1000">
                         <h3 class="title title_small timeline__title">{{education.degree}}</h3>
                         <div class="timeline__description">
-                           <p>{{education.activity}}</p>
+                           <p>{{education.field}}</p>
                         </div>
                      </article>
                   </div>
@@ -246,12 +240,12 @@
                <ANY ng-repeat="skill in user.skills">
 
 
-                 <span style="margin-left: 12px;margin-top: 12px;"><div class="about-me__tag">{{skill.skill}}</div> </span>
+                <span style="margin-left: 12px;margin-top: 12px;"><div class="about-me__tag">{{skill.skill}}</div> </span>
 
 
-              </ANY>
-              <br><br>
-              <input class="text-field" ng-model="skill" id="task" style="width: 90%">
+             </ANY>
+             <br><br>
+             <input class="text-field" ng-model="skill" id="task" style="width: 90%">
                <!-- <a class="btn" id="add" 
                href="#"><i class="icon-repeat"></i> Reload</a> -->
                <button class="text-field icon-plus" ng-click="add_skill(skill)" id="add" style="float:right; right;background-color: white;color: black;border: 2px solid #eee;"></button>
@@ -267,7 +261,7 @@
       <br><br>
       <div class="contact-form__item">
 
-         <button ng-click="verify(description,firstname,lastname,dob,address,number,email,linkedin,github)" class="button contact-form__button " data-show-effect="fadeInRight" data-show-delay="700"><span class="button__label">SUBMIT</span></button>
+         <button ng-click="verify(description,firstname,lastname,dob,address,number,linkedin,github)" class="button contact-form__button " data-show-effect="fadeInRight" data-show-delay="700"><span class="button__label">SUBMIT</span></button>
 
 
       </div>

@@ -18,21 +18,41 @@
       </div>
       <section class="about-me__sidebar " data-show-effect="fadeInRight" data-show-delay="200">
          <h3 class="title title_middle about-me__title">SIGN <span class="about-me__title-label">IN</span></h3>
-         <form id="todo-form" >
+         <form id="auth-form" >
+
+
             <div class="contact-form__item " data-show-effect="fadeInRight" data-show-delay="400" >
                <i class="icon icon-user contact-form__icon"></i> 
-               <input class="text-field" ng-model="username" placeholder="username"required>
-            </div>
+               <input class="text-field" type="email" ng-model="email" name="emailaddress" placeholder="email address"required/>
+            
+
+
+             <div ng-messages="auth-form.emailaddress.$error">
+      <!-- the required message is displayed first... -->
+      <div ng-message="required">You forgot to enter your email address...</div>
+
+      <!-- then, incase the message is too short, show the message right after -->
+      <div ng-message="minlength">Your email address is too short...</div>
+
+      <!-- of if is too long then let us know -->
+      <div ng-message="maxlength">Your email address is too long...</div>
+
+      <!-- otherwise let us know if the email itself is invalid -->
+      <div ng-message="email">You did not enter your email address correctly...</div>
+    </div>
+  </div>
+
+
             <div class="contact-form__item " data-show-effect="fadeInRight" data-show-delay="500">
                <i class="icon icon-key contact-form__icon"></i> 
                <input class="text-field" ng-model="password" type="password" placeholder="password" name="password" required>
             </div>
 
        
-
+<div ng-if="erreur == 'true'" style="color:red "> Your email or password does not exist. Try again ! <br> <br> <br></div>
 
             <div class="contact-form__item">
-               <button ng-click="verify(username,password)" class="button contact-form__button " data-show-effect="fadeInRight" data-show-delay="700"><span class="button__label">Submit</span></button>
+               <button ng-click="verify(email,password)" class="button contact-form__button " data-show-effect="fadeInRight" data-show-delay="700"><span class="button__label">Submit</span></button>
 
             </div>
 

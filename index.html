@@ -12,7 +12,7 @@
    <body id="welcome_active" ng-app="FinaxysApp">
       <section id="about" class="wrapper display_js">
          <div class="main-container main-container_padding">
-            <ng-view ng-animate=" 'layer' "></ng-view>
+            <ng-view></ng-view>
             <br><br><br><br>
          </div>
       </section>
@@ -32,27 +32,45 @@
                   </ANY>
                   <ANY ng-show="session == 'true'">
                      <div class="logo logo_left">
-                        <span class="logo__item"></span>WELCOME <span class="logo__item logo__item_bold"></span>
-                        <div class="logo__label"><span class="logo__item logo__item_bold">{{user.username}}</span></div>
+                         <ANY ng-show="session == 'false'">
+                          <span class="logo__item"></span>WELCOME <span class="logo__item logo__item_bold"></span>
+                       
+                       </ANY> 
+
+                <ANY ng-show="session == 'true'">
+
+                <div class="logo__label"><span class="logo__item logo__item_bold">
+                       
+                  <img class="avatar__img responsive-img" src="img/rh/photo.jpg" style="width: 25px; height: 25px; margin-bottom: -6px ">
+                   <any style="margin-left: 10px;"> {{user.email}} </any>
+                        </span>
+                        </div>
+                        </ANY>
+                     
                      </div>
                   </ANY>
                </div>
                <nav class="nav nav_main">
+                
                   <ANY ng-show="session == 'false'">
                      <a href="#/home" >HOME</a> 
                   </ANY>
+                 
                   <ANY ng-show="session == 'true'">
                      <ANY ng-show="type == 'staff'">
-                        <a href="#/acceuil" >HOME</a>
+                        <a href="#/acceuil" style="margin-right: 30px;">HOME</a>
+
+                     <a href="#/profileStaff" style="margin-right: 30px;">PROFILE</a>
                      </ANY>
                      <ANY ng-show="type == 'candidat'">
-                        <a href="#/offres" >OFFRES</a> 
+                        <!-- <a href="#/offres" >OFFRES</a>  -->
+                     <a href="#/profile" style="margin-right: 30px;">PROFILE</a>
                      </ANY>
-                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                     <a href="#/profile" >PROFILE</a> 
-                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                     <a href="#/home" ng-click="deconnexion()">QUIT</a> 
+                      
+                     <a href="#/home" ng-click="deconnexion()" style="margin-right: 10px;">DISCONNECT</a> 
                   </ANY>
+
+
                </nav>
             </ANY>
             <div class="nav-icon mobile-menu-open_js">
@@ -68,10 +86,16 @@
       <script src="js/vendor/angular/angular.js"></script>
       <script src="js/vendor/angular-route/angular-route.js"></script>
       <script src="js/vendor/angular-resource/angular-resource.js"></script>
+      <script src="js/vendor/angular-messages.js"></script>
       <script src="js/properties.js"></script>
       <script src="js/app.js"></script>
       <script src="js/vendor/angular-animate/angular-animate.js"></script>
+      <script type="text/javascript" src="js/controllers/AuthCtrl.js"></script>
+      <script type="text/javascript" src="js/controllers/SignCtrl.js"></script>
+      <script type="text/javascript" src="js/controllers/CandidatCtrl.js"></script>
+      <script type="text/javascript" src="js/controllers/ProfileCtrl.js"></script>
       <script type="text/javascript" src="js/dropzone.js"></script>
       <script src="js/script.js"></script>
+
    </body>
 </html>

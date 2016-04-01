@@ -1,0 +1,9 @@
+{
+  "name": "html",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "karma-junit-reporter": "~0.2.2",
+    "karma-coverage": "~0.2.6"
+  }
+}

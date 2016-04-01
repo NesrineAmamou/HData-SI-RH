@@ -25,7 +25,7 @@ FinaxysApp.controller('AuthCtrl', function($scope, $http, $location, $rootScope)
             // console.log("controller auth  username= " + $rootScope.user.username);
             localStorage.setItem("user", JSON.stringify($rootScope.user));
 
-            $location.path('/candidat');
+            $location.path('/profile');
         })
         .error(function(data) {
             $rootScope.erreur="true";

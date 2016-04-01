@@ -32,7 +32,7 @@ if (localStorage.getItem("session") == "false") $location.path('/auth');
 
     $scope.add_educ = function(year_educ, school, degree, activity) {
         $rootScope.user = JSON.parse(localStorage.getItem("user"));
-        $rootScope.user.formation.push({
+        $rootScope.user.education.push({
             date: year_educ,
             school: school,
             degree: degree,
@@ -49,12 +49,15 @@ if (localStorage.getItem("session") == "false") $location.path('/auth');
 
     $scope.add_skill = function(skill) {
         $rootScope.user = JSON.parse(localStorage.getItem("user"));
-        $rootScope.user.skills.push({
-            skill: skill
-        });
+        $rootScope.user.skills.push(skill);
+
+        for($i=0;$i<$rootScope.user.skills.length;$i++){
+        console.log("tableau de skills:  "+$rootScope.user.skills[$i]);  };
+
         localStorage.setItem("user", JSON.stringify($rootScope.user));
         // Réinitialisation des variables
         $scope.skill = '';
+
     };
 
 
@@ -118,7 +121,8 @@ if (localStorage.getItem("session") == "false") $location.path('/auth');
        headers: {
             'jwt': $rootScope.token
                 },
-            data: { user: $rootScope.user }
+            data: { user: $rootScope.user,
+                    picture: $rootScope.images[0] }
         }
 
         $http(req).
@@ -126,6 +130,7 @@ if (localStorage.getItem("session") == "false") $location.path('/auth');
             $scope.greeting = data;
             console.log(data);
             $location.path('/profile');
+            setTimeout(scrollTo(0, "myHeader"));
 
         })
         .error(function(data) {

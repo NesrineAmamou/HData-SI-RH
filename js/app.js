@@ -66,10 +66,10 @@ FinaxysApp.run(function($rootScope) {
         $rootScope.type = "";
         localStorage.setItem("token", $rootScope.token);
         localStorage.setItem("session", $rootScope.session);
-        localStorage.setItem("picture", "css/user.png");
+        localStorage.setItem("picture", "img/user.png");
         localStorage.setItem("type", $rootScope.type);
         $rootScope.experiences = [];
-        $rootScope.formation = [];
+        $rootScope.education = [];
         $rootScope.skills = [];
         $rootScope.user = {
             "email": "",
@@ -83,7 +83,7 @@ FinaxysApp.run(function($rootScope) {
             "github": "",
             "description": "",
             "experiences": $rootScope.experiences,
-            "formation": $rootScope.formation,
+            "education": $rootScope.education,
             "skills": $rootScope.skills
         };
         localStorage.setItem("user", JSON.stringify($rootScope.user));
@@ -98,7 +98,7 @@ FinaxysApp.run(function($rootScope) {
             "linkedin": "",
             "github": "",
             "experiences": $rootScope.experiences,
-            "formation": $rootScope.formation,
+            "education": $rootScope.education,
             "skills": $rootScope.skills
         };
     }
@@ -116,18 +116,20 @@ FinaxysApp.controller('headCtrl', function($scope, $http, $location, $rootScope)
     $rootScope.session = localStorage.getItem("session");
     $rootScope.type = localStorage.getItem("type");
     $rootScope.user = JSON.parse(localStorage.getItem("user"));
-
+     $rootScope.pic = localStorage.getItem("picture");
 
     $scope.deconnexion = function() {
         localStorage.setItem("session", "false");
         localStorage.setItem("token", "");
         localStorage.setItem("type", "");
+        localStorage.setItem("picture", "img/user.png");
+        $rootScope.pic = localStorage.getItem("picture");
 
         $rootScope.session = localStorage.getItem("session");
         $rootScope.type = localStorage.getItem("type");
         
         $rootScope.experiences = [];
-        $rootScope.formation = [];
+        $rootScope.education = [];
         $rootScope.skills = [];
         $rootScope.user = {
             "email": "",
@@ -141,7 +143,7 @@ FinaxysApp.controller('headCtrl', function($scope, $http, $location, $rootScope)
             "github": "",
             "description": "",
             "experiences": $rootScope.experiences,
-            "formation": $rootScope.formation,
+            "education": $rootScope.education,
             "skills": $rootScope.skills
         };
         localStorage.setItem("user", JSON.stringify($rootScope.user));

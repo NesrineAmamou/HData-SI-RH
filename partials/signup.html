@@ -19,6 +19,8 @@
 	</div>
 	<section class="about-me__sidebar">
 		<h3 class="title title_middle about-me__title">FILL IN <span class="about-me__title-label">YOUR INFO</span></h3>
+
+		<form id=sign-form>
 		<!-- <div class="contact-form__item">
 			<i class="icon icon-user contact-form__icon"></i> 
 			<input class="text-field" ng-model="username" placeholder="username" name="username" required>
@@ -26,17 +28,26 @@
 		
 		<div class="contact-form__item">
 			<i class="icon icon-envelope-alt contact-form__icon"></i> 
-			<input class="text-field" ng-model="email" type="email" placeholder="Your email" name="email" required>
+			 <input class="text-field" type="email" ng-model="email" name="emailaddress" placeholder="Your email"required/>
+
+			  <div ng-messages="sign-form.emailaddress.$error">
+      <!-- the required message is displayed first... -->
+      <div ng-message="required">You forgot to enter your email address...</div>
+      <!-- otherwise let us know if the email itself is invalid -->
+      <div ng-message="email">You did not enter your email address correctly...</div>
+    </div>
+
+
 		</div>
 
 		<div class="contact-form__item">
 			<i class="icon icon-key contact-form__icon"></i> 
-			<input class="text-field" ng-model="password" type="password" placeholder="password" name="password" required>
+			<input class="text-field" ng-model="password" type="password" placeholder="password" name="password" required/>
 		</div>
 
 		<div class="contact-form__item">
 			<i class="icon icon-key contact-form__icon"></i> 
-			<input class="text-field" ng-model="cpassword" type="password" placeholder="confirm password" name="cpassword" required>
+			<input class="text-field" ng-model="cpassword" type="password" placeholder="confirm password" name="cpassword" required/>
 		</div>
 
            

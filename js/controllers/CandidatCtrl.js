@@ -1,70 +1,68 @@
 FinaxysApp.controller('CandidatCtrl', function($scope, $http, $location, $rootScope) {
 
-    $scope.affiche = function() {
+    // $scope.affiche = function() {
 
 
-        $scope.mapDOM = function(element, json) {
-            var treeObject = {};
+    //     $scope.mapDOM = function(element, json) {
+    //         var treeObject = {};
 
-            // If string convert to document Node
-            if (typeof element === "string") {
-                if (window.DOMParser) {
-                    parser = new DOMParser();
-                    docNode = parser.parseFromString(element, "text/xml");
-                } else { // Microsoft strikes again
-                    docNode = new ActiveXObject("Microsoft.XMLDOM");
-                    docNode.async = false;
-                    docNode.loadXML(element);
-                }
-                element = docNode.firstChild;
-            }
+    //         // If string convert to document Node
+    //         if (typeof element === "string") {
+    //             if (window.DOMParser) {
+    //                 parser = new DOMParser();
+    //                 docNode = parser.parseFromString(element, "text/xml");
+    //             } else { // Microsoft strikes again
+    //                 docNode = new ActiveXObject("Microsoft.XMLDOM");
+    //                 docNode.async = false;
+    //                 docNode.loadXML(element);
+    //             }
+    //             element = docNode.firstChild;
+    //         }
 
-            //Recursively loop through DOM elements and assign properties to object
-            function treeHTML(element, object) {
-                object["type"] = element.nodeName;
-                var nodeList = element.childNodes;
-                if (nodeList != null) {
-                    if (nodeList.length) {
-                        object["content"] = [];
-                        for (var i = 0; i < nodeList.length; i++) {
-                            if (nodeList[i].nodeType == 3) {
-                                object["content"].push(nodeList[i].nodeValue);
-                            } else {
-                                object["content"].push({});
-                                treeHTML(nodeList[i], object["content"][object["content"].length - 1]);
-                            }
-                        }
-                    }
-                }
-                if (element.attributes != null) {
-                    if (element.attributes.length) {
-                        object["attributes"] = {};
-                        for (var i = 0; i < element.attributes.length; i++) {
-                            object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
-                        }
-                    }
-                }
-            }
-            treeHTML(element, treeObject);
+    //         //Recursively loop through DOM elements and assign properties to object
+    //         function treeHTML(element, object) {
+    //             object["type"] = element.nodeName;
+    //             var nodeList = element.childNodes;
+    //             if (nodeList != null) {
+    //                 if (nodeList.length) {
+    //                     object["content"] = [];
+    //                     for (var i = 0; i < nodeList.length; i++) {
+    //                         if (nodeList[i].nodeType == 3) {
+    //                             object["content"].push(nodeList[i].nodeValue);
+    //                         } else {
+    //                             object["content"].push({});
+    //                             treeHTML(nodeList[i], object["content"][object["content"].length - 1]);
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //             if (element.attributes != null) {
+    //                 if (element.attributes.length) {
+    //                     object["attributes"] = {};
+    //                     for (var i = 0; i < element.attributes.length; i++) {
+    //                         object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         treeHTML(element, treeObject);
 
-            return (json) ? JSON.stringify(treeObject) : treeObject;
-        }
-
-
-
-        $scope.docs = document.getElementById('container');
-        console.log("tttt" + $scope.docs.innerHTML + "   hhh");
-
-        $scope.json = $scope.mapDOM($scope.docs, true);
-        console.log($scope.json);
-
-        $scope.cv = $scope.docs.innerHTML;
-
-    }
+    //         return (json) ? JSON.stringify(treeObject) : treeObject;
+    //     }
 
 
 
-    console.log("kakakakaaka");
+    //     $scope.docs = document.getElementById('container');
+    //     console.log("tttt" + $scope.docs.innerHTML + "   hhh");
+
+    //     $scope.json = $scope.mapDOM($scope.docs, true);
+    //     console.log($scope.json);
+
+    //     $scope.cv = $scope.docs.innerHTML;
+
+    // }
+
+
     if (localStorage.getItem("session") == "false") $location.path('/auth');
 
     $rootScope.user = JSON.parse(localStorage.getItem("user"));
@@ -128,11 +126,7 @@ FinaxysApp.controller('CandidatCtrl', function($scope, $http, $location, $rootSc
 
 
 
-
-    //$rootScope.pict=localStorage.getItem("picture");
-
     $scope.images = [];
-    // $scope.images.push("rrrrrrr"+$rootScope.pict);
 
     $rootScope.images = [];
 
@@ -142,9 +136,7 @@ FinaxysApp.controller('CandidatCtrl', function($scope, $http, $location, $rootSc
     };
 
 
-    //Add new file to $scope.images
     $scope.addImage = function() {
-        //console.log("fonction ajouter image*********************** ");
         $scope.images = [];
         var
             reader = new FileReader(),
@@ -159,9 +151,7 @@ FinaxysApp.controller('CandidatCtrl', function($scope, $http, $location, $rootSc
         }
         reader.readAsDataURL($img.files[0]);
         $rootScope.images = $scope.images;
-        //localStorage.setItem("koala",JSON.stringify($rootScope.images));
-        //localStorage.setItem("taswira",$rootScope.images[0]);
-        //console.log($rootScope.images[0]);
+       
     };
 
 

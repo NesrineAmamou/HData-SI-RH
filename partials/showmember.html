@@ -1,6 +1,6 @@
-<div ng-controller="ProfileCtrl">
-   <a onMouseOver="this.style.cursor='hand'"> <i class="icon-edit icon-2x" ng-click="edit()"  style="float:right;"/></a>
-   <br><br><br><br>
+<div ng-controller="showStaffCtrl">
+   <!-- <a onMouseOver="this.style.cursor='hand'"> <i class="icon-edit icon-2x" ng-click="edit()"  style="float:right;"/></a>
+      --> <br><br><br><br>
    <header class="main-container__header">
       <h2 class="title title_bottom-decor">About me</h2>
       <div class="subtitle" id="myHeader">Let me introduce myself</div>
@@ -8,10 +8,10 @@
    <div class="content about-me">
       <div class="about-me__layout " data-show-effect="fadeInLeft" data-show-delay="200">
          <div class="avatar">
-            <img class="avatar__img responsive-img" src="{{pic}}" > 
+            <img class="avatar__img responsive-img" src="{{photo}}" > 
          </div>
          <div class="about-me__content">
-            <p>{{user.description}}</p>
+            <p>{{member.description}}</p>
          </div>
       </div>
       <section class="about-me__sidebar " data-show-effect="fadeInRight" data-show-delay="200">
@@ -27,7 +27,7 @@
                <div class="about-me__tag">Name</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.firstname}} {{user.lastname}}</div>
+               <div class="about-me__value"> {{member.firstname}} {{member.lastname}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -35,7 +35,7 @@
                <div class="about-me__tag">DOB</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.dob}}</div>
+               <div class="about-me__value"> {{member.dob}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -43,7 +43,7 @@
                <div class="about-me__tag">ADDRESS</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.address}}</div>
+               <div class="about-me__value"> {{member.address}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -51,7 +51,7 @@
                <div class="about-me__tag">PHONE</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.number}}</div>
+               <div class="about-me__value"> {{member.number}}</div>
             </div>
          </div>
          <!--  <div class="about-me__row">
@@ -59,7 +59,7 @@
                <div class="about-me__tag">E-mail</div>
             </div> -->
          <!--  <div class="about-me__column">
-            <div class="about-me__value"><a href="#"> {{user.email}}</a></div>
+            <div class="about-me__value"><a href="#"> {{member.email}}</a></div>
             </div> -->
          <!--   </div> -->
          <div class="about-me__row">
@@ -67,8 +67,8 @@
                <div class="about-me__tag">Follow me</div>
             </div>
             <div class="about-me__column">
-               <big>   <big> <a href="//{{user.linkedin}}" class=" icon_rounded icon-linkedin-sign" ></a> </big></big>
-               <big>   <big>  <a href="//{{user.github}}" class=" icon_rounded icon-github-sign" ></a>  </big></big>
+               <big>   <big> <a href="//{{member.linkedin}}" class=" icon_rounded icon-linkedin-sign" ></a> </big></big>
+               <big>   <big>  <a href="//{{member.github}}" class=" icon_rounded icon-github-sign" ></a>  </big></big>
             </div>
          </div>
       </section>
@@ -124,7 +124,7 @@
       </header>
       <div class="timeline">
          <div class="timeline__line " data-show-effect="fadeInDown" data-show-delay="0" data-time="2000"></div>
-         <div ng-repeat="experience in user.experiences">
+         <div ng-repeat="experience in member.experiences">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
                <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.date}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
@@ -157,7 +157,7 @@
       </header>
       <div class="timeline">
          <div class="timeline__line " data-show-effect="fadeInDown" data-show-delay="0" data-time="2000"></div>
-         <div ng-repeat="education in user.education">
+         <div ng-repeat="education in member.education">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
                <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.date}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
@@ -189,7 +189,7 @@
       <div class="subtitle">What can I offer for you</div>
    </header>
    <div class="content services">
-      <ANY ng-repeat="skilll in user.skills">
+      <ANY ng-repeat="skilll in member.skills">
          <span style="margin-left: 12px;margin-top: 12px;">
             <div class="about-me__tag">{{skilll}}</div>
          </span>
@@ -209,7 +209,7 @@
             <img class="avatar__img responsive-img" src="{{pic}}" > 
          </div>
          <div class="about-me__content">
-            <p>{{user.description}}</p>
+            <p>{{member.description}}</p>
          </div>
       </div>
       <section class="about-me__sidebar " data-show-effect="fadeInRight" data-show-delay="200">
@@ -224,7 +224,7 @@
                <div class="about-me__tag">Name</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.firstname}} {{user.lastname}}</div>
+               <div class="about-me__value"> {{member.firstname}} {{member.lastname}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -232,7 +232,7 @@
                <div class="about-me__tag">DOB</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.dob}}</div>
+               <div class="about-me__value"> {{member.dob}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -240,7 +240,7 @@
                <div class="about-me__tag">ADDRESS</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.address}}</div>
+               <div class="about-me__value"> {{member.address}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -248,7 +248,7 @@
                <div class="about-me__tag">PHONE</div>
             </div>
             <div class="about-me__column">
-               <div class="about-me__value"> {{user.number}}</div>
+               <div class="about-me__value"> {{member.number}}</div>
             </div>
          </div>
          <div class="about-me__row">
@@ -262,8 +262,8 @@
                <div class="about-me__tag">Follow me</div>
             </div>
             <div class="about-me__column">
-               <big>   <big> <a href="//{{user.linkedin}}" class=" icon_rounded icon-linkedin-sign" ></a> </big></big>
-               <big>   <big>  <a href="//{{user.github}}" class=" icon_rounded icon-github-sign" ></a>  </big></big>
+               <big>   <big> <a href="//{{member.linkedin}}" class=" icon_rounded icon-linkedin-sign" ></a> </big></big>
+               <big>   <big>  <a href="//{{member.github}}" class=" icon_rounded icon-github-sign" ></a>  </big></big>
             </div>
          </div>
       </section>
@@ -278,7 +278,7 @@
       </header>
       <div class="timeline">
          <div class="timeline__line " data-show-effect="fadeInDown" data-show-delay="0" data-time="2000"></div>
-         <div ng-repeat="experience in user.experiences">
+         <div ng-repeat="experience in member.experiences">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
                <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{experience.year}}</span> <span class="timeline__place-work">{{experience.company}}</span></div>
@@ -302,7 +302,7 @@
       </header>
       <div class="timeline">
          <div class="timeline__line " data-show-effect="fadeInDown" data-show-delay="0" data-time="2000"></div>
-         <div ng-repeat="education in user.formation">
+         <div ng-repeat="education in member.formation">
             <div class="timeline__layout">
                <div class="timeline__dotted " data-show-effect="zoomIn" data-show-delay="500" data-time="300"></div>
                <div class="timeline__inner timeline__time " data-show-effect="fadeIn" data-show-delay="900"><span class="timeline__date">{{education.year_educ}}</span> <span class="timeline__place-work">{{education.school}}</span></div>
@@ -325,7 +325,7 @@
       <div class="subtitle">What can I offer for you</div>
    </header>
    <div class="content services">
-      <ANY ng-repeat="skill in user.skills">
+      <ANY ng-repeat="skill in member.skills">
          <span style="margin-left: 12px;margin-top: 12px;">
             <div class="about-me__tag">{{skill.skill}}</div>
          </span>
@@ -342,7 +342,7 @@
                <div class="subtitle">Get in touch</div>
             </header>
             <form class="contact-form">
-               <div class="contact-form__item " data-show-effect="fadeInLeft" data-show-delay="400"><i class="icon icon-user contact-form__icon"></i> <input class="text-field" placeholder="Your name" name="username" required></div>
+               <div class="contact-form__item " data-show-effect="fadeInLeft" data-show-delay="400"><i class="icon icon-member contact-form__icon"></i> <input class="text-field" placeholder="Your name" name="membername" required></div>
                <div class="contact-form__item " data-show-effect="fadeInRight" data-show-delay="500"><i class="icon icon-envelope-alt contact-form__icon"></i> <input class="text-field" type="email" placeholder="Your email" name="email" required></div>
                <div class="contact-form__item " data-show-effect="fadeInLeft" data-show-delay="600"><i class="icon icon-comment-alt contact-form__icon"></i><textarea class="text-field textarea" placeholder="Your message" name="message" required></textarea></div>
                <button class="button contact-form__button " data-show-effect="fadeInRight" data-show-delay="700"><span class="button__label">Send</span></button>

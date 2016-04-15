@@ -54,14 +54,14 @@
                <div class="about-me__value"> {{user.number}}</div>
             </div>
          </div>
-        <!--  <div class="about-me__row">
+         <!--  <div class="about-me__row">
             <div class="about-me__column">
                <div class="about-me__tag">E-mail</div>
             </div> -->
-           <!--  <div class="about-me__column">
-               <div class="about-me__value"><a href="#"> {{user.email}}</a></div>
+         <!--  <div class="about-me__column">
+            <div class="about-me__value"><a href="#"> {{user.email}}</a></div>
             </div> -->
-       <!--   </div> -->
+         <!--   </div> -->
          <div class="about-me__row">
             <div class="about-me__column">
                <div class="about-me__tag">Follow me</div>
@@ -183,16 +183,62 @@
    </div>
 </section>
 <section id="services" class="wrapper display_js">
-<div class="main-container main-container_padding main-container_no-padding-bottom">
-   <header class="main-container__header">
-      <h2 class="title title_bottom-decor">Skills</h2>
-      <div class="subtitle">What can I offer for you</div>
-   </header>
-   <div class="content services">
-      <ANY ng-repeat="skilll in user.skills">
-         <span style="margin-left: 12px;margin-top: 12px;">
-            <div class="about-me__tag">{{skilll}}</div>
-         </span>
-      </ANY>
+   <div class="main-container main-container_padding main-container_no-padding-bottom">
+      <header class="main-container__header">
+         <h2 class="title title_bottom-decor">Skills</h2>
+         <div class="subtitle">What can I offer for you</div>
+      </header>
+      <div class="content services">
+         <ANY ng-repeat="skilll in user.skills">
+            <span style="margin-left: 12px;margin-top: 12px;">
+               <div class="about-me__tag">{{skilll}}</div>
+            </span>
+         </ANY>
+      </div>
    </div>
-</div>
+</section>
+<section id="resume" class="wrapper display_js">
+   <div class="main-container main-container_padding main-container_no-padding-bottom">
+      <header class="main-container__header">
+         <h2 class="title title_bottom-decor">Resume</h2>
+         <div class="subtitle">Existing Resume</div>
+      </header>
+      <div class="content services">
+         <span style="margin-left: 12px;margin-top: 12px;">
+            <div class="about-me__tag">Formation</div>
+            <br><br>
+            <any ng-repeat="f in formationcv">
+            <div >{{f}}</div>
+            <br>
+            </any>
+         </span>
+        
+         <span style="margin-left: 12px;margin-top: 12px;">
+           <div class="about-me__tag">Compétences</div>
+            <br><br>
+             <any ng-repeat="s in skillscv">
+            <div>{{s}}</div>
+            <br>
+            </any>
+         </span>
+        <br>
+         <span style="margin-left: 12px;margin-top: 12px;">
+           <div class="about-me__tag">Langues</div>
+            <br><br>
+             <any ng-repeat="l in languescv">
+            <div>{{l}}</div>
+            <br>
+            </any>
+         </span>
+        
+         <span style="margin-left: 12px;margin-top: 12px;">
+           <div class="about-me__tag">Expériences</div>
+            <br><br>
+             <any ng-repeat="e in experiencescv">
+            <div >{{e}}</div>
+            <br>
+            </any>
+         </span>
+      </div>
+   </div>
+</section>

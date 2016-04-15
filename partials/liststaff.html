@@ -1,0 +1,19 @@
+<div ng-controller="ListStaffCtrl">
+   <header class="main-container__header">
+      <h2 class="title title_bottom-decor">ESPACE {{role}}</h2>
+   </header>
+   <br><br><br><BR><BR><br>
+   <div class="content about-me">
+      <section class="about-me__sidebar " data-show-effect="fadeInRight" data-show-delay="200">
+      </section>
+      <section class="about-me__sidebar">
+         <h3 class="title title_middle about-me__title"> <span class="about-me__title-label"> STAFF MEMBERs</span></h3>
+         <div ng-repeat="members in list">
+            <br>
+            <any ng-init="cible='members.email'"/>
+            <a ng-click="showmember(members.email)"><span>{{members.email}}</span></a> 
+         </div>
+      </section>
+   </div>
+   <br><BR><BR>
+</div>

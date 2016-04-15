@@ -1,34 +1,89 @@
-<header class="main-container__header">
-   <h2 class="title title_bottom-decor">ESPACE STAFF</h2>
-   <div class="subtitle">WELCOME</div>
-</header>
-<br><br><br>
-<div class="content about-me">
-   
- 
-   <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 70px;">
-      <a href="#/profileStaff">
-         <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">CONSULTANTS</span></h3>
-         <img src="img/consultant/c1.png" style="margin-left: -10px;"/>
-      </a>
-   </section>
-
-
-   <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 140px;">
-      <a href="#/profileStaff">
-         <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">Ressources Humaines</span></h3>
-         <br>
-          <img src="img/rh/rh24.png" style="margin-left: 70px;"/>
-      </a>
-   </section>
-
-
-   <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 170px;">
-      <a href="#/profileStaff">
-         <h3 class="title title_middle about-me__title"><span class="about-me__title-label">DIRECTION</span></h3>
-         <br>
-         <img src="img/direction/d4.png" style="margin-left: -20px;"/>
-      </a>
-   </section>
+<div ng-controller="HomeStaffCtrl">
+   <header class="main-container__header">
+      <h2 class="title title_bottom-decor">ESPACE {{role}}</h2>
+      <div class="subtitle">WELCOME</div>
+   </header>
+   <br><br><br><BR><BR><br>
+   <div class="content about-me">
+      <table>
+         <tr>
+            <td>
+               <div ng-show="role =='admin'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 110px;">
+                     <a href="#/recrutement">
+                        <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">RECRUTEMENT</span></h3>
+                        <img src="img/search.png" style="margin-left: 30px;"/>
+                     </a>
+                  </section>
+               </div>
+               <div ng-show="role =='RH'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 110px;">
+                     <a href="#/recrutement">
+                        <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">RECRUTEMENT</span></h3>
+                        <img src="img/search.png" style="margin-left: 30px;"/>
+                     </a>
+                  </section>
+               </div>
+               <div ng-show="role =='consultant'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 220px;">
+                     <a href="#/acceuil">
+                        <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">Evaluation</span></h3>
+                        <img src="img/evaluation/eval1.png" style="margin-left: 30px;"/>
+                     </a>
+                  </section>
+               </div>
+            </td>
+            <td>
+               <div ng-show="role =='admin'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 240px;">
+                     <a href="#/staffmanagement">
+                        <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">STAFF</span></h3>
+                        <br>
+                        <img src="img/staff2.png" style="margin-left: -20px;"/>
+                     </a>
+                  </section>
+               </div>
+               <div ng-show="role =='RH'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 230px;">
+                     <a href="#/acceuil">
+                        <h3 class="title title_middle about-me__title"> <span class="about-me__title-label">EVENTS</span></h3>
+                        <br>
+                        <img src="img/calendar/cal4.png" style="margin-left: -10px;"/>
+                     </a>
+                  </section>
+               </div>
+            </td>
+            <td>
+               <div ng-show="role =='admin'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 240px;">
+                     <a href="#/acceuil">
+                        <h3 class="title title_middle about-me__title"><span class="about-me__title-label">DASHBOARD</span></h3>
+                        <br>
+                        <img src="img/dashboard/d4.png" style="margin-left: -20px;"/>
+                     </a>
+                  </section>
+               </div>
+               <div ng-show="role =='RH'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 240px;">
+                     <a href="#/acceuil">
+                        <h3 class="title title_middle about-me__title"><span class="about-me__title-label">DASHBOARD</span></h3>
+                        <br>
+                        <img src="img/dashboard/d4.png" style="margin-left: -20px;"/>
+                     </a>
+                  </section>
+               </div>
+               <div ng-show="role =='consultant'">
+                  <section  data-show-effect="fadeInDown" data-show-delay="200" style="margin-left: 400px;">
+                     <a href="#/acceuil">
+                        <h3 class="title title_middle about-me__title"><span class="about-me__title-label">DASHBOARD</span></h3>
+                        <br>
+                        <img src="img/dashboard/d4.png" style="margin-left: -20px;"/>
+                     </a>
+                  </section>
+               </div>
+            </td>
+         </tr>
+      </table>
+   </div>
+   <br><BR><BR>
 </div>
-<br>
